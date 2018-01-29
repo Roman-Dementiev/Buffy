@@ -1,0 +1,19 @@
+﻿{
+  "id": "TOC",
+  "title": "Game Develolpment Bookshelf",
+  "content": [
+    {
+      "home": "BH5G",
+      "json": "toc.json"
+    },
+    {
+      "home": "H5GCF",
+      "json": "toc.json"
+    },
+    {
+      "home": "3DGPFK/BC/",
+      "type":  "bonus book",
+      "json":  "toc.json"
+    }
+  ]
+}

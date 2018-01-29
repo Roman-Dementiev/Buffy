@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<!--<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
+
+	<title>Jewel Warrior</title>
+
+	<link rel="stylesheet" href="styles/main.css" />
+	<link rel="stylesheet" href="styles/fontfaces.css" />
+	<link rel="stylesheet" href="styles/mobile.css" 
+			media="screen and (max-device-width: 768px) and (orientation: portrait),
+					screen and (max-device-width: 1024px) and (orientation: landscape)"/>
+
+	<!--<script type="text/javascript" src="../../lib/require.2.1.8.js" async></script>-->
+	<script src="../../scripts/Sandbox.js"></script>
+	<script src="../../scripts/H5GCF/Loader.js"></script>
+	<script src="../../scripts/H5GCF/Bootstrap.js"></script>
+	<script>
+		JewelWarrior.bootstrap();
+	</script>
+</head>
+<body>
+	<div id="game">
+		<div class="screen" id="splash-screen">
+			<h1 class="logo">Jewel <br />Warrior</h1>
+			<div class="progress">
+				<div class="indicator"></div>
+			</div>
+			<span class="continue">Click to continue</span>
+		</div>
+		<div class="screen" id="install-screen">
+			<h1 class="logo">Jewel <br />Warrior</h1>
+			<span>
+				Click the <img src="images/install-icon.png"
+					   alt="Install icon">
+				button to install the game to your home screen.
+			</span>
+		</div>
+		<div class="screen" id="main-menu">
+			<h2 class="logo">Jewel <br />Warrior</h2>
+			<ul class="menu">
+				<li><button name="game-screen">Play</button>
+				<li><button name="high-scores">Highscore</button>
+				<li><button name="about">About</button>
+				<li><button name="exit-screen">Exit</button>
+			</ul>
+		</div>
+		<div class="screen" id="game-screen">
+			<div class="game-board">
+				<div class="announcement"></div>
+			</div>
+			<div class="game-info">
+				<label class="level">Level: <span></span></label>
+				<label class="score">Score: <span></span></label>
+			</div>
+			<div class="time progress"><div class="indicator"></div></div>
+			<footer>
+				<button class="exit">Exit</button>
+				<button class="pause">Pause</button>
+			</footer>
+			<div class="pause-overlay">
+				<div class="pause-text">Pause</div>
+			</div>
+		</div>
+		<div class="screen" id="high-scores">
+			<h2 class="logo">High score</h2>
+			<ol class="score-list"></ol>
+			<footer>
+				<button class="back">Back</button>
+			</footer>
+		</div>
+	</div>
+</body>
+</html>

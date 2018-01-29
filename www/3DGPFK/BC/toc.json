@@ -1,0 +1,107 @@
+﻿{
+  "title": "\"3D Game Programming for Kids: Create Interactive Worlds With JavaScript\" by Chris Strom",
+  "type": "book",
+  "content": [
+    {
+      "title": "Chapter 1, Project: Creating Simple Shapes",
+      "type": "chapter",
+      "link": "chapter01.html"
+    },
+    {
+      "title": "Chapter 2, Playing with the Console and Finding What’s Broken",
+      "type": "chapter"
+    },
+    {
+      "title": "Chapter 3, Project: Making an Avatar",
+      "type": "chapter",
+      "link": "chapter03.html"
+    },
+    {
+      "title": "Chapter 4, Project: Moving Avatars",
+      "type": "chapter",
+      "link": "chapter04.html"
+    },
+    {
+      "title": "Chapter 5, Functions: Use and Use Again",
+      "type": "chapter",
+      "link": "chapter05.html"
+    },
+    {
+      "title": "Chapter 6, Project: Moving Hands and Feet",
+      "type": "chapter",
+      "link": "chapter06.html"
+    },
+    {
+      "title": "Chapter 7, A Closer Look at JavaScript Fundamentals",
+      "type": "chapter"
+    },
+    {
+      "title": "Chapter 8, Project: Turning Our Avatar",
+      "type": "chapter",
+      "link": "chapter08.html"
+    },
+    {
+      "title": "Chapter 9, What’s All That Other Code?",
+      "type": "chapter"
+    },
+    {
+      "title": "Chapter 10, Project: Collisions",
+      "type": "chapter",
+      "link": "chapter10.html"
+    },
+    {
+      "title": "Chapter 11, Project: Fruit Hunt",
+      "type": "chapter",
+      "link": "chapter11.html"
+    },
+    {
+      "title": "Chapter 12, Working with Lights and Materials",
+      "type": "chapter",
+      "link": "chapter12.html"
+    },
+    {
+      "title": "Chapter 13, Project: Build Your Own Solar System",
+      "type": "chapter",
+      "link": "chapter13.html"
+    },
+    {
+      "title": "Chapter 14, Project: Phases of the Moon",
+      "type": "chapter",
+      "link": "chapter14.html"
+    },
+    {
+      "title": "Chapter 15, Project: The Purple Fruit Monster Game",
+      "type": "chapter",
+      "link": "chapter15.html"
+    },
+    {
+      "title": "Chapter 16, Project: Tilt-a-Board",
+      "type": "chapter",
+      "link": "chapter16.html"
+    },
+    {
+      "title": "Chapter 17, Project: Learning about JavaScript Objects",
+      "type": "chapter",
+      "link": "chapter17.html"
+    },
+    {
+      "title": "Chapter 18, Project: Cave Puzzle",
+      "type": "chapter",
+      "link": "chapter18.html"
+    },
+    {
+      "title": "Chapter 19, Project: Multilevel Game",
+      "type": "chapter",
+      "link": "chapter19.html"
+    },
+    {
+      "title": "Chapter 20, Project: River Rafting",
+      "type": "chapter",
+      "link": "chapter20.html"
+    },
+    {
+      "title": "Chapter 21, Getting Code on the Web",
+      "type": "chapter"
+    }
+  ]
+}

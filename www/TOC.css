@@ -1,0 +1,33 @@
+﻿#TOC {
+	padding: 4px 2em;
+	/*background-color: gainsboro;*/
+}
+
+#TOC header {
+	font-size: 24px;
+	font-weight: normal;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	text-align: center;
+}
+
+.book {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.chapter {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.samples {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.example {
+	font-size: 12px;
+	font-weight: normal;
+}

@@ -1,0 +1,288 @@
+﻿{
+  "title": "Book examples",
+  "type": "chapter",
+  "home": "examples",
+  "listTag": "ol",
+  "content": [
+    {
+      "title": "Chapter 1: Getting started with HTML 5 Games",
+      "type": "samples",
+      "home": "ch01",
+      "content": [
+        {
+          "title": "Canvas example",
+          "type": "example",
+          "link": "01-canvas.html"
+        },
+        {
+          "title": "Audio example",
+          "type": "example",
+          "link": "02-audio.html"
+        },
+        {
+          "title": "WebSockets example",
+          "type": "example",
+          "link": "03-websockets.html"
+        },
+        {
+          "title": "WebStorage example",
+          "type": "example",
+          "link": "04-webstorage.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 2: Taking the first steps",
+      "type": "samples"
+    },
+    {
+      "title": "Chapter 3: Going Mobile",
+      "type": "samples",
+      "home": "ch03",
+      "content": [
+        {
+          "title": "PhoneGap example",
+          "type": "example",
+          "link": "01-phonegap.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 4: Building the Game",
+      "type": "samples"
+    },
+    {
+      "title": "Chapter 5: Delegating Tasks to Web Workers",
+      "type": "samples",
+      "home": "ch05",
+      "content": [
+        {
+          "title": "Prime Number without Web Worker",
+          "type": "example",
+          "link": "prime-no-worker.html"
+        },
+        {
+          "title": "Prime Number using Web Worker",
+          "type": "example",
+          "link": "prime-worker.html"
+        },
+        {
+          "title": "Shared Worker",
+          "type": "example",
+          "link": "shared-worker.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 6: Creating Graphics with Canvas",
+      "type": "samples",
+      "home": "ch06",
+      "content": [
+        {
+          "title": "Triangle",
+          "type": "example",
+          "link": "01-triangle.html"
+        },
+        {
+          "title": "Arcs and circles",
+          "type": "example",
+          "link": "02-arcs.html"
+        },
+        {
+          "title": "Quadratic Bezier curve",
+          "type": "example",
+          "link": "03-quadraticCurve.html"
+        },
+        {
+          "title": "Cubic Bezier curve",
+          "type": "example",
+          "link": "04-cubicCurve.html"
+        },
+        {
+          "title": "Clipping path",
+          "type": "example",
+          "link": "05-clippingPath.html"
+        },
+        {
+          "title": "Gradients",
+          "type": "example",
+          "link": "06-gradient.html"
+        },
+        {
+          "title": "Ellipse",
+          "type": "example",
+          "link": "07-ellipse.html"
+        },
+        {
+          "title": "Shadows",
+          "type": "example",
+          "link": "08-shadows.html"
+        },
+        {
+          "title": "HTML5 Logo",
+          "type": "example",
+          "link": "09-html5logo.html"
+        },
+        {
+          "title": "Image Data Pattern",
+          "type": "example",
+          "link": "10-imageData.html"
+        },
+        {
+          "title": "Image Data Blending",
+          "type": "example",
+          "link": "10-blending.html"
+        },
+        {
+          "title": "Image Data Twirl",
+          "type": "example",
+          "link": "11-twirl.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 7: Creating the Game Display",
+      "type": "samples"
+    },
+    {
+      "title": "Chapter 8: Interacting with the Game",
+      "type": "samples",
+      "home": "ch08",
+      "content": [
+        {
+          "title": "Virtual keyboard",
+          "type": "example",
+          "link": "01-virtualkeyboard.html"
+        },
+        {
+          "title": "Touch events",
+          "type": "example",
+          "link": "02-touch.html"
+        },
+        {
+          "title": "Multitouch drag",
+          "type": "example",
+          "link": "03-multidrag.html"
+        },
+        {
+          "title": "Pinch zoom multi-touch",
+          "type": "example",
+          "link": "04-pinchzoom.html"
+        },
+        {
+          "title": "Gestures",
+          "type": "example",
+          "link": "05-gesture.html"
+        },
+        {
+          "title": "Canvas input events",
+          "type": "example",
+          "link": "06-canvaspath.html"
+        },
+        {
+          "title": "Gamepad input events",
+          "type": "example",
+          "link": "07-gamepad.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 9: Animating Game Graphics",
+      "type": "samples",
+      "home": "ch09",
+      "content": [
+        {
+          "title": "Animation with setTimeout()",
+          "type": "example",
+          "link": "01-settimeout.html"
+        },
+        {
+          "title": "Animation with requestAnimationFrame()",
+          "type": "example",
+          "link": "02-requestanimationframe.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 10: Creating Audio for Games",
+      "type": "samples",
+      "home": "ch10",
+      "content": [
+        {
+          "title": "Custom controls",
+          "type": "example",
+          "link": "01-customcontrols.html"
+        },
+        {
+          "title": "Web Audio API",
+          "type": "example",
+          "link": "02-webaudio.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 11: Creating 3D Graphics with WebGL",
+      "type": "samples",
+      "home": "ch11",
+      "content": [
+        {
+          "title": "Cube",
+          "type": "example",
+          "link": "01-cube.html"
+        },
+        {
+          "title": "Collada loading",
+          "type": "example",
+          "link": "02-collada.html"
+        },
+        {
+          "title": "Phong shadings",
+          "type": "example",
+          "link": "03-lighting-vertex.html"
+        },
+        {
+          "title": "Fragment shading",
+          "type": "example",
+          "link": "04-lighting-fragment.html"
+        },
+        {
+          "title": "Textures",
+          "type": "example",
+          "link": "05-texture.html"
+        },
+        {
+          "title": "Jewel",
+          "type": "example",
+          "link": "06-jewel.html"
+        },
+        {
+          "title": "Three.js",
+          "type": "example",
+          "link": "07-threejs.html"
+        }
+      ]
+    },
+    {
+      "title": "Chapter 12: Local Storage and Caching",
+      "type": "samples",
+      "home": "ch12",
+      "content": [
+        {
+          "title": "Local Storage",
+          "type": "example",
+          "link": "01-localStorage.html"
+        },
+        {
+          "title": "Local Storage Reader",
+          "type": "example",
+          "link": "02-localStorageReader.html"
+        },
+        {
+          "title": "Session Storage",
+          "type": "example",
+          "link": "03-sessionStorage.html"
+        }
+      ]
+    }
+  ]
+}

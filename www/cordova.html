@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="cordova.css">
+		<!--<link rel="stylesheet" type="text/css" href="TOC.css">-->
+		<script type="text/javascript" src="cordova.js"></script>
+		<!-- The 'async' attribute is needed for RequireJS to work in a Windows app -->
+		<script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+		<script type="text/javascript" src="scripts/Sandbox.js"></script>
+		<script type="text/javascript" src="scripts/TestBench.js"></script>
+		<script type="text/javascript" src="scripts/TOC.js"></script>
+
+		<title>Game Develpment</title>
+
+		<style>
+			#TestBench {
+				display: none;
+			}
+			#TOC_textarea {
+				padding: 1em;
+				position: absolute;
+				left: 2em;
+				right: 2em;
+				width: 80%;
+				height: 50%;
+			}
+		</style>
+   </head>
+    <body>
+        <div class="cordova">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+
+		<div class="content">
+			<header><h1>Game Development</h1></header>
+			<section>
+				<h4>Based on "Build an HTML5 Game: a developer's guide with CSS and JavaScript" by Karl Bunyan</h4>
+				<ul>
+					<li>
+						<details>
+							<summary><a href="BH5G/BC/index.html">Book source code</a></summary>
+							<ul>
+								<li><a href="BH5G/BC.dom/index.html">Chapters 1-4: Using DOM sprites</a></li>
+								<li><a href="BH5G/BC.dom_css/index.html">Chapter 5: Adding CSS transitions</a></li>
+								<li><a href="BH5G/BC.canvas/index.html">Chapter 6: Using canvas sprites</a></li>
+								<li><a href="BH5G/BC/index.html">Chapter 7: Adding levels, sound and more</a></li>
+							</ul>
+						</details>
+					</li>
+					<li><a href="BH5G/TS/index.html?nocanvas">TypeScript using DOM sprites</a></li>
+					<li><a href="BH5G/TS/index.html">TypeScript using canvas (default).</a></li>
+				</ul>
+			</section>
+			<section>
+				<h4>Based on "HTML5 Games: Creating Fun with HTML5, CSS3 and JavaScript" by Jacob Seidelin</h4>
+				<ul>
+					<li><a href="H5GCF/BC_canvas/index.html">Book source code (using Canvas 2D)</a></li>
+					<li><a href="H5GCF/BC_webgl/index.html">Book source code (using WebGL)</a></li>
+					<li>
+						<details>
+							<summary>Book examples</summary>
+							<ul>
+								<li>
+									<details open>
+										<summary>Chapter 1: Getting started with HTML 5 Games</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch01/01-canvas.html">Canvas example</a></li>
+											<li><a href="H5GCF/examples/ch01/02-audio.html">Audio example</a></li>
+											<li><a href="H5GCF/examples/ch01/03-websockets.html">WebSockets example</a></li>
+											<li><a href="H5GCF/examples/ch01/04-webstorage.html">WebStorage example</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 2: Taking the first steps</summary>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 3: Going Mobile</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch03/01-phonegap.html">PhoneGap example</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 4: Building the Game</summary>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 5: Delegating Tasks to Web Workers</summary>
+										<ul>
+											<li><a href="H5GCF/examples/ch05/prime-no-worker.html">Prime Number without Web Worker</a></li>
+											<li><a href="H5GCF/examples/ch05/prime-worker.html">Prime Number using Web Worker</a></li>
+											<li><a href="H5GCF/examples/ch05/shared-worker.html">Shared Worker</a></li>
+										</ul>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 6: Creating Graphics with Canvas</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch06/01-triangle.html">Triangle</a></li>
+											<li><a href="H5GCF/examples/ch06/02-arcs.html">Arcs and circles</a></li>
+											<li><a href="H5GCF/examples/ch06/03-quadraticCurve.html">Quadratic Bezier curve</a></li>
+											<li><a href="H5GCF/examples/ch06/04-cubicCurve.html">Cubic Bezier curve</a></li>
+											<li><a href="H5GCF/examples/ch06/05-clippingPath.html">Clipping path</a></li>
+											<li><a href="H5GCF/examples/ch06/06-gradient.html">Gradients</a></li>
+											<li><a href="H5GCF/examples/ch06/07-ellipse.html">Ellipse</a></li>
+											<li><a href="H5GCF/examples/ch06/08-shadows.html">Shadows</a></li>
+											<li><a href="H5GCF/examples/ch06/09-html5logo.html">HTML5 Logo</a></li>
+											<li><a href="H5GCF/examples/ch06/10-imageData.html">Image Data Pattern</a></li>
+											<li><a href="H5GCF/examples/ch06/10-blending.html">Image Data Blending</a></li>
+											<li><a href="H5GCF/examples/ch06/11-twirl.html">Image Data Twirl</a></li>
+											<li><a href="H5GCF/examples/ch06/11-twirl.html">Image Data Twirl</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 7: Creating the Game Display</summary>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 8: Interacting with the Game</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch08/01-virtualkeyboard.html">Virtual keyboard</a></li>
+											<li><a href="H5GCF/examples/ch08/02-touch.html">Touch events</a></li>
+											<li><a href="H5GCF/examples/ch08/03-multidrag.html">Multitouch drag</a></li>
+											<li><a href="H5GCF/examples/ch08/04-pinchzoom.html">Pinch zoom multi-touch</a></li>
+											<li><a href="H5GCF/examples/ch08/05-gesture.html">Gestures</a></li>
+											<li><a href="H5GCF/examples/ch08/06-canvaspath.html">Canvas input events</a></li>
+											<li><a href="H5GCF/examples/ch08/07-gamepad.html">Gamepad input events</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 9: Animating Game Graphics</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch09/01-settimeout.html">Animation with setTimeout()</a></li>
+											<li><a href="H5GCF/examples/ch09/02-requestanimationframe.html">Animation with requestAnimationFrame()</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 10: Creating Audio for Games</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch10/01-customcontrols.html">Custom controls</a></li>
+											<li><a href="H5GCF/examples/ch10/02-webaudio.html">Web Audio API</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 11: Creating 3D Graphics with WebGL</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch11/01-cube.html">Cube</a></li>
+											<li><a href="H5GCF/examples/ch11/02-collada.html">Collada loading</a></li>
+											<li><a href="H5GCF/examples/ch11/03-lighting-vertex.html">Phong shadings</a></li>
+											<li><a href="H5GCF/examples/ch11/04-lighting-fragment.html">Fragment shading</a></li>
+											<li><a href="H5GCF/examples/ch11/05-texture.html">Textures</a></li>
+											<li><a href="H5GCF/examples/ch11/06-jewel.html">Jewel</a></li>
+											<li><a href="H5GCF/examples/ch11/07-threejs.html">Three.js</a></li>
+										</ol>
+									</details>
+								</li>
+								<li>
+									<details open>
+										<summary>Chapter 12: Local Storage and Caching</summary>
+										<ol>
+											<li><a href="H5GCF/examples/ch12/01-localStorage.html">Local Storage</a></li>
+											<li><a href="H5GCF/examples/ch12/02-localStorageReader.html">Local Storage Reader</a></li>
+											<li><a href="H5GCF/examples/ch12/03-sessionStorage.html">Session Storage</a></li>
+										</ol>
+									</details>
+								</li>
+							</ul>
+					</details>
+					</li>
+					<li><a href="H5GCF/TS/index.html">TypeScript code (Canvas 2D, no Web Workers)</a></li>
+					<li><a href="H5GCF/TS/index.html?loader_delay=200;webgl;use_workers">TypeScript code (WebGL, Web Workers)</a></li>
+				</ul>
+			</section>
+			<!--<footer>Footnotes</footer>-->
+		</div>
+		<div id="TestBench">
+			<textarea id="TOC_textarea"></textarea>
+		</div>
+    </body>
+</html>

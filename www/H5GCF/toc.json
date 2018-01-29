@@ -1,0 +1,30 @@
+﻿{
+  "title": "\"HTML5 Games: Creating Fun with HTML5, CSS3 and JavaScript\" by Jacob Seidelin",
+  "type": "book",
+  "content": [
+    {
+      "title": "Book source code (using Canvas 2D)",
+      "type": "chapter",
+      "link": "BC_canvas/index.html"
+    },
+    {
+      "title": "Book source code (using WebGL)",
+      "type": "chapter",
+      "link": "BC_webgl/index.html"
+    },
+    {
+      "home": "examples",
+      "json": "toc.json"
+    },
+    {
+      "title": "TypeScript code (Canvas 2D, no Web Workers)",
+      "type": "chapter",
+      "link": "TS/index.html"
+    },
+    {
+      "title": "TypeScript code (WebGL, Web Workers)",
+      "type": "chapter",
+      "link": "TS/index.html?loader_delay=200;webgl;use_workers"
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+﻿{
+  "id": "TOC",
+  "title": "Game Develolpment Bookshelf",
+  "content": [
+    {
+      "title": "\"Build an HTML5 Game: a developer's guide with CSS and JavaScript\" by Karl Bunyan",
+      "type": "book",
+      "home": "BH5G",
+      "content": [
+        {
+          "title": "Book source code",
+          "type": "chapter",
+          "home": "BC",
+          "link": "index.html",
+          "content": [
+            {
+              "title": "Chapters 1-4: Using DOM sprites",
+              "type": "chapter",
+              "home": "BC.dom",
+              "link": "index.html"
+            },
+            {
+              "title": "Chapter 5: Adding CSS transitions",
+              "type": "chapter",
+              "home": "BC.dom_css/",
+              "link": "index.html"
+            },
+            {
+              "title": "Chapter 6: Using canvas sprites",
+              "type": "chapter",
+              "home": "BC.canvas/",
+              "link": "index.html"
+            },
+            {
+              "title": "Chapter 7: Adding levels, sound and more",
+              "type": "chapter",
+              "link": "index.html"
+            }
+          ]
+        },
+        {
+          "title": "TypeScript using DOM sprites",
+          "type": "chapter",
+          "link": "TS/index.html?nocanvas"
+        },
+        {
+          "title": "TypeScript using canvas (default)",
+          "type": "chapter",
+          "link": "TS/index.html"
+        }
+      ]
+    },
+    {
+      "title": "\"HTML5 Games: Creating Fun with HTML5, CSS3 and JavaScript\" by Jacob Seidelin",
+      "type": "book",
+      "home": "H5GCF",
+      "content": [
+        {
+          "title": "Book source code (using Canvas 2D)",
+          "type": "chapter",
+          "link": "BC_canvas/index.html"
+        },
+        {
+          "title": "Book source code (using WebGL)",
+          "type": "chapter",
+          "link": "BC_webgl/index.html"
+        },
+        {
+          "title": "Book examples",
+          "type": "chapter",
+          "home": "examples",
+          "listTag": "ol",
+          "content": [
+            {
+              "title": "Chapter 1: Getting started with HTML 5 Games",
+              "type": "samples",
+              "home": "ch01",
+              "content": [
+                {
+                  "title": "Canvas example",
+                  "type": "example",
+                  "link": "01-canvas.html"
+                },
+                {
+                  "title": "Audio example",
+                  "type": "example",
+                  "link": "02-audio.html"
+                },
+                {
+                  "title": "WebSockets example",
+                  "type": "example",
+                  "link": "03-websockets.html"
+                },
+                {
+                  "title": "WebStorage example",
+                  "type": "example",
+                  "link": "04-webstorage.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 2: Taking the first steps",
+              "type": "samples"
+            },
+            {
+              "title": "Chapter 3: Going Mobile",
+              "type": "samples",
+              "home": "ch03",
+              "content": [
+                {
+                  "title": "PhoneGap example",
+                  "type": "example",
+                  "link": "01-phonegap.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 4: Building the Game",
+              "type": "samples"
+            },
+            {
+              "title": "Chapter 5: Delegating Tasks to Web Workers",
+              "type": "samples",
+              "home": "ch05",
+              "content": [
+                {
+                  "title": "Prime Number without Web Worker",
+                  "type": "example",
+                  "link": "prime-no-worker.html"
+                },
+                {
+                  "title": "Prime Number using Web Worker",
+                  "type": "example",
+                  "link": "prime-worker.html"
+                },
+                {
+                  "title": "Shared Worker",
+                  "type": "example",
+                  "link": "shared-worker.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 6: Creating Graphics with Canvas",
+              "type": "samples",
+              "home": "ch06",
+              "content": [
+                {
+                  "title": "Triangle",
+                  "type": "example",
+                  "link": "01-triangle.html"
+                },
+                {
+                  "title": "Arcs and circles",
+                  "type": "example",
+                  "link": "02-arcs.html"
+                },
+                {
+                  "title": "Quadratic Bezier curve",
+                  "type": "example",
+                  "link": "03-quadraticCurve.html"
+                },
+                {
+                  "title": "Cubic Bezier curve",
+                  "type": "example",
+                  "link": "04-cubicCurve.html"
+                },
+                {
+                  "title": "Clipping path",
+                  "type": "example",
+                  "link": "05-clippingPath.html"
+                },
+                {
+                  "title": "Gradients",
+                  "type": "example",
+                  "link": "06-gradient.html"
+                },
+                {
+                  "title": "Ellipse",
+                  "type": "example",
+                  "link": "07-ellipse.html"
+                },
+                {
+                  "title": "Shadows",
+                  "type": "example",
+                  "link": "08-shadows.html"
+                },
+                {
+                  "title": "HTML5 Logo",
+                  "type": "example",
+                  "link": "09-html5logo.html"
+                },
+                {
+                  "title": "Image Data Pattern",
+                  "type": "example",
+                  "link": "10-imageData.html"
+                },
+                {
+                  "title": "Image Data Blending",
+                  "type": "example",
+                  "link": "10-blending.html"
+                },
+                {
+                  "title": "Image Data Twirl",
+                  "type": "example",
+                  "link": "11-twirl.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 7: Creating the Game Display",
+              "type": "samples"
+            },
+            {
+              "title": "Chapter 8: Interacting with the Game",
+              "type": "samples",
+              "home": "ch08",
+              "content": [
+                {
+                  "title": "Virtual keyboard",
+                  "type": "example",
+                  "link": "01-virtualkeyboard.html"
+                },
+                {
+                  "title": "Touch events",
+                  "type": "example",
+                  "link": "02-touch.html"
+                },
+                {
+                  "title": "Multitouch drag",
+                  "type": "example",
+                  "link": "03-multidrag.html"
+                },
+                {
+                  "title": "Pinch zoom multi-touch",
+                  "type": "example",
+                  "link": "04-pinchzoom.html"
+                },
+                {
+                  "title": "Gestures",
+                  "type": "example",
+                  "link": "05-gesture.html"
+                },
+                {
+                  "title": "Canvas input events",
+                  "type": "example",
+                  "link": "06-canvaspath.html"
+                },
+                {
+                  "title": "Gamepad input events",
+                  "type": "example",
+                  "link": "07-gamepad.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 9: Animating Game Graphics",
+              "type": "samples",
+              "home": "ch09",
+              "content": [
+                {
+                  "title": "Animation with setTimeout()",
+                  "type": "example",
+                  "link": "01-settimeout.html"
+                },
+                {
+                  "title": "Animation with requestAnimationFrame()",
+                  "type": "example",
+                  "link": "02-requestanimationframe.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 10: Creating Audio for Games",
+              "type": "samples",
+              "home": "ch10",
+              "content": [
+                {
+                  "title": "Custom controls",
+                  "type": "example",
+                  "link": "01-customcontrols.html"
+                },
+                {
+                  "title": "Web Audio API",
+                  "type": "example",
+                  "link": "02-webaudio.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 11: Creating 3D Graphics with WebGL",
+              "type": "samples",
+              "home": "ch11",
+              "content": [
+                {
+                  "title": "Cube",
+                  "type": "example",
+                  "link": "01-cube.html"
+                },
+                {
+                  "title": "Collada loading",
+                  "type": "example",
+                  "link": "02-collada.html"
+                },
+                {
+                  "title": "Phong shadings",
+                  "type": "example",
+                  "link": "03-lighting-vertex.html"
+                },
+                {
+                  "title": "Fragment shading",
+                  "type": "example",
+                  "link": "04-lighting-fragment.html"
+                },
+                {
+                  "title": "Textures",
+                  "type": "example",
+                  "link": "05-texture.html"
+                },
+                {
+                  "title": "Jewel",
+                  "type": "example",
+                  "link": "06-jewel.html"
+                },
+                {
+                  "title": "Three.js",
+                  "type": "example",
+                  "link": "07-threejs.html"
+                }
+              ]
+            },
+            {
+              "title": "Chapter 12: Local Storage and Caching",
+              "type": "samples",
+              "home": "ch12",
+              "content": [
+                {
+                  "title": "Local Storage",
+                  "type": "example",
+                  "link": "01-localStorage.html"
+                },
+                {
+                  "title": "Local Storage Reader",
+                  "type": "example",
+                  "link": "02-localStorageReader.html"
+                },
+                {
+                  "title": "Session Storage",
+                  "type": "example",
+                  "link": "03-sessionStorage.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "TypeScript code (Canvas 2D, no Web Workers)",
+          "type": "chapter",
+          "link": "TS/index.html"
+        },
+        {
+          "title": "TypeScript code (WebGL, Web Workers)",
+          "type": "chapter",
+          "link": "TS/index.html?loader_delay=200;webgl;use_workers"
+        }
+      ]
+    },
+    {
+      "title": "\"3D Game Programming for Kids: Create Interactive Worlds With JavaScript\" by Chris Strom",
+      "type": "book",
+      "home": "3DGPFK/BC/",
+      "content": [
+        {
+          "title": "Chapter 1, Project: Creating Simple Shapes",
+          "type": "chapter",
+          "link": "chapter01.html"
+        },
+        {
+          "title": "Chapter 2, Playing with the Console and Finding What’s Broken",
+          "type": "chapter"
+        },
+        {
+          "title": "Chapter 3, Project: Making an Avatar",
+          "type": "chapter",
+          "link": "chapter03.html"
+        },
+        {
+          "title": "Chapter 4, Project: Moving Avatars",
+          "type": "chapter",
+          "link": "chapter04.html"
+        },
+        {
+          "title": "Chapter 5, Functions: Use and Use Again",
+          "type": "chapter",
+          "link": "chapter05.html"
+        },
+        {
+          "title": "Chapter 6, Project: Moving Hands and Feet",
+          "type": "chapter",
+          "link": "chapter06.html"
+        },
+        {
+          "title": "Chapter 7, A Closer Look at JavaScript Fundamentals",
+          "type": "chapter"
+        },
+        {
+          "title": "Chapter 8, Project: Turning Our Avatar",
+          "type": "chapter",
+          "link": "chapter08.html"
+        },
+        {
+          "title": "Chapter 9, What’s All That Other Code?",
+          "type": "chapter"
+        },
+        {
+          "title": "Chapter 10, Project: Collisions",
+          "type": "chapter",
+          "link": "chapter10.html"
+        },
+        {
+          "title": "Chapter 11, Project: Fruit Hunt",
+          "type": "chapter",
+          "link": "chapter11.html"
+        },
+        {
+          "title": "Chapter 12, Working with Lights and Materials",
+          "type": "chapter",
+          "link": "chapter12.html"
+        },
+        {
+          "title": "Chapter 13, Project: Build Your Own Solar System",
+          "type": "chapter",
+          "link": "chapter13.html"
+        },
+        {
+          "title": "Chapter 14, Project: Phases of the Moon",
+          "type": "chapter",
+          "link": "chapter14.html"
+        },
+        {
+          "title": "Chapter 15, Project: The Purple Fruit Monster Game",
+          "type": "chapter",
+          "link": "chapter15.html"
+        },
+        {
+          "title": "Chapter 16, Project: Tilt-a-Board",
+          "type": "chapter",
+          "link": "chapter16.html"
+        },
+        {
+          "title": "Chapter 17, Project: Learning about JavaScript Objects",
+          "type": "chapter",
+          "link": "chapter17.html"
+        },
+        {
+          "title": "Chapter 18, Project: Cave Puzzle",
+          "type": "chapter",
+          "link": "chapter18.html"
+        },
+        {
+          "title": "Chapter 19, Project: Multilevel Game",
+          "type": "chapter",
+          "link": "chapter19.html"
+        },
+        {
+          "title": "Chapter 20, Project: River Rafting",
+          "type": "chapter",
+          "link": "chapter20.html"
+        },
+        {
+          "title": "Chapter 21, Getting Code on the Web",
+          "type": "chapter"
+        }
+      ]
+    }
+  ]
+}

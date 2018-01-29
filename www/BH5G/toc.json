@@ -1,0 +1,43 @@
+﻿{
+  "title": "\"Build an HTML5 Game: a developer's guide with CSS and JavaScript\" by Karl Bunyan",
+  "type": "book",
+  "content": [
+    {
+      "title": "Book source code",
+      "type": "chapter",
+      "link": "BC/index.html",
+      "content": [
+        {
+          "title": "Chapters 1-4: Using DOM sprites",
+          "type": "chapter",
+          "link": "BC.dom/index.html"
+        },
+        {
+          "title": "Chapter 5: Adding CSS transitions",
+          "type": "chapter",
+          "link": "BC.dom_css/index.html"
+        },
+        {
+          "title": "Chapter 6: Using canvas sprites",
+          "type": "chapter",
+          "link": "BC.canvas/index.html"
+        },
+        {
+          "title": "Chapter 7: Adding levels, sound and more",
+          "type": "chapter",
+          "link": "BC/index.html"
+        }
+      ]
+    },
+    {
+      "title": "TypeScript using DOM sprites",
+      "type": "chapter",
+      "link": "TS/index.html?nocanvas"
+    },
+    {
+      "title": "TypeScript using canvas (default)",
+      "type": "chapter",
+      "link": "TS/index.html"
+    }
+  ]
+}
