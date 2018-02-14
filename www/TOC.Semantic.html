@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
+    <link rel="stylesheet" type="text/css" href="lib/semantic/components//sidebar.css">
+    <link rel="stylesheet" type="text/css" href="TOC.Semantic.css">
+    <script src="lib/jquery-2.2.4.js"></script>
+    <script src="lib/semantic/semantic.js"></script>
+    <script src="lib/semantic/components/sidebar.js"></script>
+    <script src="scripts/Sandbox.js"></script>
+    <script src="scripts/IndentedText.js"></script>
+    <script src="scripts/HtmlWriter.js"></script>
+    <script src="scripts/TOC.js"></script>
+    <script src="scripts/TOC.Rendering.js"></script>
+    <script src="scripts/TOC.Semantic.js"></script>
+    <script src="scripts/TOC_test.js"></script>
+    <script src="scripts/TOC_test.Semantic.js"></script>
+    <script src="TOC_full.js"></script>
+    <script src="sample.js"></script>
+	<title>Game Develpment Bookshelf</title>
+</head>
+<body>
+    <h1 id="page-header" class="ui block header">
+        <p>
+            <!--<i id="sidedbarIcon" class="circular inverted grey sidebar small icon"></i>-->
+            <i id="sidedbarIcon" class="dark-grey sidebar small icon"></i>
+            <!--<button id="sidedbarIcon" class="ui icon button">
+                <i class="sidebar icon"></i>
+            </button>-->
+            <span id="TOC_title" class=" toc-header">TOC Semantic</span>
+        </p>
+    </h1>
+
+    <div id="bench-segment" class="ui segments">
+        <h1 id="bench-header" class="ui top attached header">
+            <i id="bench-close" class="inverted remove icon" style="float:left;"></i>
+            <span id="bench-mode"></span>
+        </h1>
+        <div id="bench-textsegment" class="ui attached segment">
+            <textarea id="bench-textarea" rows="30" style="width:100%";></textarea>
+        </div>
+    </div>
+
+    <div id="TOC_content" class="toc-content"></div>
+
+    <div id="Sidebar" class="ui wide sidebar">
+        <h1 id="sidebar-header" class="ui block header">
+            <i id="sidedbarClose" class="big inverted remove icon"></i>
+        </h1>
+        <form class="ui form">
+            <input type="file" id="chooseJSON" name="chooseJSON" width="90" />
+
+            <div id="grpOptions" class="ui segment">
+                <h5 class="ui dividing header">HTML</h5>
+                <div class="ui horizontal label rendering" >Top level Semanic:</div>
+                <div class="grouped fields" style="float:left">
+                    <div class="field">
+                        <div id="semanticDefault" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Semantic" checked="checked">
+                            <label>Default</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="semanticCollapsable" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Semantic">
+                            <label>Collapsable</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="semanticAccordion" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Semantic">
+                            <label>Accordion</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="semanticDisabled" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Semantic">
+                            <label>Disabled</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui horizontal label rendering" >Sublevels:</div>
+                <div class="grouped fields" style="float:left">
+                    <div class="field">
+                        <div id="sublevelsHtml" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Sublevels" checked="checked">
+                            <label>No Semantic</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="sublevelsSemantic" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Sublevels">
+                            <label>Use Semantic</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="sublevelsShared" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Sublevels">
+                            <label>Shared renderer</label>
+                        </div>
+                    </div>
+                    <div id="collapsable" class="ui checkbox regenerate">
+                        <input type="checkbox" class="hidden">
+                        <label>Collapsable</label>
+                    </div>
+                </div>
+
+                <!--<div class="ui horizontal label rendering" >Images:</div>
+                <div class="grouped fields" style="float:left">
+                    <div class="field">
+                        <div id="imagesDefault" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Images" checked="checked">
+                            <label>Default</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="imagesLeft" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Images">
+                            <label>Left</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="imagesRight" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Images">
+                            <label>Right</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="imagesAside" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Images">
+                            <label>Aside</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div id="imagesNone" class="ui radio checkbox regenerate">
+                            <input type="radio" name="Images">
+                            <label>None</label>
+                        </div>
+                    </div>
+                </div>-->
+
+                <div style="clear:both"></div>
+                <!--<div class="ui divider" style="clear:both"></div>-->
+                <!--<h5 class="ui dividing header" style="clear:both">Options</h5>-->
+
+                <div id="dividers" class="ui checkbox regenerate">
+                    <input type="checkbox" class="hidden">
+                    <label>Section dividers</label>
+                </div>
+                <br />
+                <div id="ignoreIcons" class="ui checkbox regenerate">
+                    <input type="checkbox" class="hidden">
+                    <label>Ignore icons</label>
+                </div>
+
+                <!--<div class="ui divider"></div>-->
+                <br />
+                <div class="item">
+                    <div class="ui horizontal label dropdown">Images:&nbsp;</div>
+                    <div id="imagesDropdown" class="ui inline dropdown">
+                        <div class="text">Default</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="">Default</div>
+                            <div class="item" data-value="left">Left</div>
+                            <div class="item" data-value="right">Right</div>
+                            <div class="item" data-value="aside">Aside</div>
+                            <div class="item" data-value="none">None</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="ui horizontal label dropdown">Indent:&nbsp;</div>
+                    <div id="indentDropdown" class="ui inline dropdown">
+                        <div class="text">Default</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="2">Default</div>
+                            <div class="item" data-value="tabs">Tabs</div>
+                            <div class="item" data-value="none">None</div>
+                            <div class="item" data-value="noeol">Remove EOL</div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h5 class="ui dividing header">Styles</h5>
+                    <div id="uniformStyles" class="ui checkbox regenerate">
+                        <input type="checkbox" class="hidden">
+                        <label>Uniform</label>
+                    </div>
+                    <div class="item">
+                        <div class="ui horizontal label style">aside:&nbsp;</div>
+                        <div id="asideDropdown" class="ui inline dropdown">
+                            <div class="text"> - </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item" data-value=""> - </div>
+                                <div class="item" data-value="left">float:left</div>
+                                <div class="item" data-value="right">float:right</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<button id="btnRestore" class="ui basic inverted button">
+                Restore
+            </button>-->
+        </form>
+        <div id="bench-buttons" class="ui form">
+            <label id="bench-label"><b>Show:</b></label>
+            <button id="btnJSON" class="ui basic inverted button">JSON</button>
+            <button id="btnCTOC" class="ui basic inverted button">CToc</button>
+            <button id="btnHTML" class="ui basic inverted button">HTML</button>
+        </div>
+    </div>
+
+    <uniform id="uniform" style="display:none"></uniform>
+    <aside id="aside" style="display:none"></aside>
+
+    <script>
+        window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_full));
+        //window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_sample1));
+        //window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_sample2));
+    </script>
+</body>
+</html>

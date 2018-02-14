@@ -1,5 +1,7 @@
 ﻿{
-  "title": "\"Build an HTML5 Game: a developer's guide with CSS and JavaScript\" by Karl Bunyan",
+  "image": "cover.jpg",
+  "title": "\"Build an HTML5 Game: a developer's guide with CSS and JavaScript\"",
+  "description": "by Karl Bunyan",
   "type": "book",
   "content": [
     {

@@ -3,7 +3,9 @@
   "title": "Game Develolpment Bookshelf",
   "content": [
     {
-      "title": "\"Build an HTML5 Game: a developer's guide with CSS and JavaScript\" by Karl Bunyan",
+      "image": "cover.jpg",
+      "title": "Build an HTML5 Game: a developer's guide with CSS and JavaScript",
+      "description": "by Karl Bunyan",
       "type": "book",
       "home": "BH5G",
       "content": [
@@ -51,7 +53,9 @@
       ]
     },
     {
-      "title": "\"HTML5 Games: Creating Fun with HTML5, CSS3 and JavaScript\" by Jacob Seidelin",
+      "image": "cover.jpg",
+      "title": "HTML5 Games: Creating Fun with HTML5, CSS3 and JavaScript",
+      "description": "by Jacob Seidelin",
       "type": "book",
       "home": "H5GCF",
       "content": [
@@ -366,7 +370,9 @@
       ]
     },
     {
-      "title": "\"3D Game Programming for Kids: Create Interactive Worlds With JavaScript\" by Chris Strom",
+      "image": "../cover.jpg",
+      "title": "3D Game Programming for Kids: Create Interactive Worlds With JavaScript",
+      "description": "by Chris Strom",
       "type": "book",
       "home": "3DGPFK/BC/",
       "content": [

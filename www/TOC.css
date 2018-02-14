@@ -3,7 +3,7 @@
 	/*background-color: gainsboro;*/
 }
 
-#TOC header {
+.toc-header {
 	font-size: 24px;
 	font-weight: normal;
 	margin: 0px;
@@ -12,9 +12,19 @@
 	text-align: center;
 }
 
+/*.toc-content {
+	margin-left: 1em;
+}*/
+
 .book {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
+	clear: left;
+}
+
+.description {
+	font-size: 16px;
+	font-weight: normal;
 }
 
 .chapter {
@@ -31,3 +41,20 @@
 	font-size: 12px;
 	font-weight: normal;
 }
+
+.book aside {
+	float: left;
+	clear: left;
+}
+
+td {
+	padding: 10px;
+	padding-bottom: 20px;
+	vertical-align: top;
+}
+
+img {
+	width: 200px;
+	/*margin: 0px 20px;*/
+}
+

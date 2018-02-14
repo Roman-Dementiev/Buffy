@@ -1,5 +1,10 @@
 ﻿namespace Sandbox
 {
+	export function getDefaulted<T>(value: T, defaultValue: T): T
+	{
+		return (typeof value !== 'undefined') ? value : defaultValue;
+	}
+
 	export function checkArrayLength(array: any[], length: number, allowNullForEmpty = false): boolean
 	{
 		if (array) {
@@ -12,9 +17,11 @@
 	export function copy(source: object): any
 	{
 		let result = {};
-		let properties = Object.getOwnPropertyNames(source);
-		for (let propertyName of properties) {
-			result[propertyName] = source[propertyName];
+		if (source) {
+			let properties = Object.getOwnPropertyNames(source);
+			for (let propertyName of properties) {
+				result[propertyName] = source[propertyName];
+			}
 		}
 		return result;
 	}
@@ -171,4 +178,4 @@
 		let paramStr: string = documentParamString();
 		return parseParams({}, paramStr, conv);
 	}
-};
+}

@@ -1,0 +1,198 @@
+﻿uniform {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	text-align: center;
+}
+
+/*.toc-title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	text-align: center;
+}*/
+
+.toc-content {
+	padding: 4px 0.5em;
+	margin-left: 20px;
+}
+
+.book {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.description {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.chapter {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.samples {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.example {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+td {
+	padding: 10px;
+	padding-bottom: 20px;
+	vertical-align: top;
+}
+
+img {
+	width: 200px;
+	margin: 0px 10px;
+}
+
+/*aside {
+	float: left;
+	clear: both;
+}*/
+
+
+
+#page-header {
+	margin: 4px;
+	margin-top: 2px;
+	border-radius: 10px;
+}
+
+#bench-segment {
+	display: none;
+	margin: 4px;
+}
+
+#bench-header {
+	font-size: 40px;
+	padding: 2px;
+	color: white;
+	background-color: dimgrey;
+}
+
+#bench-textsegment {
+	padding: 0px;
+	border: 0px;
+}
+
+#sidebar-header,
+#bench-header {
+	font-size: 10px;
+	padding: 4px;
+	margin: 0px;
+}
+
+#sidebar-header {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+#chooseJSON,
+#grpOptions,
+#btnRestore,
+#bench-buttons {
+	margin: 8px;
+	width: 95%;
+	background-color: gainsboro;
+	border-color: gray;
+}
+
+#btnRestore {
+	width: auto;
+	display: none;
+}
+
+
+#bench-buttons {
+	position: absolute;
+	/*top: auto;*/
+	bottom: 4px;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+#bench-label {
+	color: white;
+	margin: 10px;
+}
+
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
+	padding: 0;
+	margin: 0;
+}
+
+/*.ui.radio.checkbox {
+	margin: 0px 0px;
+}*/
+.ui.toggle.checkbox {
+	margin: 4px 0px;
+}
+
+.ui.horizontal.label {
+	padding: 1px;
+	background-color: transparent;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+
+.label.rendering {
+	width: 5em;
+}
+
+.label.dropdown {
+	width: 3.5em;
+}
+
+.label.style {
+	width: 3em;
+}
+
+.ui.horizontal.label {
+	margin: 6px 2px;
+	font-weight: normal;
+	font-size: 1.1em;
+	text-align: right;
+}
+	.ui.horizontal.label.rendering {
+		padding: 0;
+		float: left;
+		clear: left;
+		margin: 4px 4px 2px 4px;
+		font-weight: bold;
+	}
+
+	.ui.horizontal.label.style {
+		font-weight: bold;
+	}
+
+
+
+
+.ui.accordion .title:not(.ui) {
+	/*/ /default - padding: 0.5em 0em;
+	*/ padding: 0;
+}
+
+.ui.accordion .title {
+	padding: 0;
+}
+
+.ui.accordion .accordion {
+	margin: 0;
+}
+
+

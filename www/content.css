@@ -1,0 +1,48 @@
+﻿.content {
+	display: none;
+	padding: 8px;
+	/*background-color: white;*/
+}
+
+.toc-header {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0px;
+	overflow: visible;
+	padding: 0 0 20px 0;
+	text-align: center;
+	/*background-color: gainsboro;*/
+}
+
+td {
+	padding: 4px;
+	padding-bottom: 10px;
+	vertical-align: top;
+}
+
+img {
+	width: 60px;
+	margin: 0px 4px;
+}
+
+.book {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0 0 8px 0;
+}
+
+.chapter {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.samples {
+	font-size: 10px;
+	font-weight: normal;
+}
+
+.example {
+	font-size: 10px;
+	font-weight: normal;
+}
+

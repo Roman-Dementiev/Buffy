@@ -4,34 +4,37 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 "use strict";
 
-var initTime : number;
+//var initTime : number;
 
-var tocStyles: TOC.Styles = {
-	//titleClass: 'TOC_header',
-	titleTag: 'header',
-	typeSpecs: {
-		book: {
-			collapsable: true,
-		},
-		samples: {
-			collapsable: true,
-			startOpen: true,
-			listTag: 'ol'
-		}
+var types = {
+	'root': {
+		listTag: 'table'
+	},
+	'book': {
+		collapsable: true,
+		startOpen: true,
+		descriptionBreak: true,
+		descriptionClass: 'description',
+		listTag: 'ul'
+	},
+	'samples': {
+		collapsable: true,
+		startOpen: true,
+		listTag: 'ol'
 	}
 };
 
 
 export function initialize(): void {
-	initTime = Date.now();
+	//initTime = Date.now();
 	document.addEventListener('deviceready', onDeviceReady, false);
 	console.log("initialized");
 }
 
 function onDeviceReady(): void
 {
-	let delay : number = Date.now() - initTime;
-	console.log("deviceready: ", delay);
+	//let delay : number = Date.now() - initTime;
+	//console.log("deviceready: ", delay);
 
 	document.addEventListener('pause', onPause, false);
 	document.addEventListener('resume', onResume, false);
@@ -48,9 +51,8 @@ function onDeviceReady(): void
 
 	let arg: TOC.ToHtmlArg = {
 		toc: 'TOC.json',
-		styles: tocStyles,
-		indent: 2,
-
+		types: types,
+		renderer: createRenderer(),
 		initHook: (ctoc: TOC.CToc) => {
 			//console.log("Before hook: ", logContent(ctoc.root));
 			ctoc.removeClasses("bonus")
@@ -61,12 +63,30 @@ function onDeviceReady(): void
 	TOC.setAsHtml(contentElement, arg, (html: string, err: any) =>
 	{
 		if (err) {
-			alert("Can not load TOC.json\n" + err.toString());
+			alert(`Can not load '${arg.toc}': ` + err.toString());
 		} else {
 			cordovaElement.setAttribute('style', 'display:none;');
 			contentElement.setAttribute('style', 'display:block;');
 		}
 	}, sessionStorage);
+}
+
+function createRenderer(): TOC.HtmlRenderer
+{
+	let arg: TOC.SemanticRendererArg = {
+		//headerTag: 'header',
+		indentSize: 2,
+		imagePlace: TOC.kImageLeft,
+		ignoreIcons: true,
+		divider: true,
+		stateStore: sessionStorage,
+		types: types
+	};
+
+	let contentRenderer = TOC.createHtmlRenderer(arg);
+	return contentRenderer;
+
+	//return new TOC.SemanticRenderer(arg, contentRenderer);
 }
 
 function logContent(entry: TOC.Entry) : string

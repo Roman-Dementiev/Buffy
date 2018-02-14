@@ -1,30 +1,46 @@
 ﻿namespace TOC
 {
-	type ListTag = 'ul' | 'ol';
+	//export type HeaderTag = 'div' | 'header';
+	export const kOrderedList = 'ol';
+	export const kUnorderedList = 'ul';
+	export const kTable = 'table';
+	//export type ListMode = null | TOC.kUnorderedList | TOC.kOrderedList | TOC.kTable;
+	export type ListMode = null | 'ul' | 'ol' | 'table'
+
+	export const kImageNone = 'none';
+	export const kImageLeft = 'left';
+	export const kImageRight = 'right';
+	export const kImageAside = 'aside';
+	export type ImagePlacement = 'none' | 'left' | 'right' | 'aside';
 
 	export type Entry = {
 		id?: string,
 		title?: string,
+		image?: string,
+		description?: string,
 		json?: string,
 		type?: string,
 		home?: string,
 		link?: string,
-		listTag?: ListTag,
+		listTag?: ListMode,
 		content?: Entry[]
 	};
 
-	interface Normalized
+	export interface Normalized
 	{
 		id: string,
 		gid: string,
 		title: string,
+		image: string,
+		description?: string,
 		json?: string,
 		type: string,
 		home: string,
 		link: string,
 		homeUri: string,
 		linkUri: string,
-		listTag: ListTag,
+		imageUri: string,
+		listTag?: ListMode,
 		content: Normalized[]
 	};
 
@@ -35,7 +51,6 @@
 	}
 
 	export type InitHook = (ctoc: CToc) => void;
-//	export type LoadHook = (entry: Entry, jsonUri: string) => Entry|boolean;
 
 	export type Arg = {
 		toc: string|Entry,
@@ -43,7 +58,6 @@
 		rootUri?: string,
 		rootId?: string,
 		initHook?: InitHook,
-//		loadHook?: LoadHook
 	};
 
 	export interface ToJsonArg extends Arg {
@@ -51,46 +65,43 @@
 	};
 
 	export interface ToHtmlArg extends Arg {
-		styles?: Styles,
-		indent?: number
+		renderer?: HtmlRenderer,
+		types?: object,
+		contentOnly?: boolean
 	};
+
+	//function isToc(arg: Entry | ToHtmlArg | ToJsonArg): arg is Entry { return typeof (arg as any).title !== 'undefined'; }
+	function isArg(arg: Entry | ToHtmlArg | ToJsonArg): arg is Arg { return typeof (arg as any).toc !== 'undefined'; }
 
 	type Normalization = {
 		parent: Normalized,
-		//index?: number,
 		rootId: string,
 		rootUri: string,
 		homeUri: string,
 		scope: Scope,
-//		loadHook: LoadHook
 	};
-
-//	function isToc(arg: Entry | ToHtmlArg | ToJsonArg): arg is Entry { return typeof (arg as any).title !== 'undefined'; }
-	function isArg(arg: Entry | ToHtmlArg | ToJsonArg): arg is Arg { return typeof (arg as any).toc !== 'undefined'; }
 
 	export type TypeSpec = {
 		collapsable?: boolean,
+		titleClass?: string,
+		contentClass?: string,
+		descriptionClass?: string,
+		descriptionBreak?: boolean,
 		startOpen?: boolean,
-		listTag?: ListTag
-	};
-
-	export type Styles = {
-		titleTag?: 'div' | 'header',   //default: div
-		titleClass?: string,           // default: none for <header>, TOC_header for <div>,
-		defaultType?: string,          // default: toc_entry
-		typeSpecs?: object
+		listTag?: ListMode,
+		imagePlace?: ImagePlacement
 	};
 
 	var defaultEntryType = null;//'toc_entry';
 
 	type EventHandler = (event: Event, element: HTMLElement, entry: Entry) => void;
 
-	type StateStore = {
+	export type StateStore = {
 		autoSave: boolean,
 		storage?: Storage,
 		prefix?: string,
 	};
-	type TStore = string | Storage | StateStore;
+	export type TStore = string | Storage | StateStore;
 
 	export class CToc
 	{
@@ -118,7 +129,6 @@
 			let rootUri: string;
 			let scope: Scope;
 			let initHook: InitHook;
-			//let loadHook: LoadHook;
 
 			if (typeof arg === 'string') {
 				toc = { json: arg };
@@ -133,7 +143,6 @@
 				rootUri = arg.rootUri;
 				scope = arg.idScope;
 				initHook = arg.initHook;
-				//loadHook = arg.loadHook;
 			} else {
 				toc = arg;
 			}
@@ -157,8 +166,7 @@
 				rootId: rootId,
 				rootUri: rootUri,
 				homeUri: rootUri,
-				scope: scope,
-				//loadHook: loadHook
+				scope: scope
 			};
 
 			CToc.normalizeEntry(toc, normalizeArg,
@@ -263,13 +271,14 @@
 					id: entry.id,
 					gid: null,
 					title: entry.title ? entry.title : "",
+					image: entry.image ? entry.image : null,
 					type: entry.type ? entry.type : null,
 					home: entry.home ? entry.home : null,
 					link: entry.link ? entry.link : null,
 					json: entry.json,
 					homeUri: null,
 					linkUri: null,
-					listTag: null,
+					imageUri: null,
 					content: null
 				};
 				Sandbox.mergeIn(normalized, entry);
@@ -306,9 +315,11 @@
 				if (entry.home) {
 					normalized.homeUri = makeHomeUri(entry.home, arg.rootUri, arg.homeUri);
 					normalized.linkUri = makeLinkUri(entry.link, arg.rootUri, normalized.homeUri);
+					normalized.imageUri = makeLinkUri(entry.image, arg.rootUri, normalized.homeUri);
 				} else {
 					normalized.homeUri = arg.homeUri;
 					normalized.linkUri = makeLinkUri(entry.link, arg.rootUri, arg.homeUri);
+					normalized.imageUri = makeLinkUri(entry.image, arg.rootUri, arg.homeUri);
 				}
 
 				if (entry.listTag) {
@@ -386,6 +397,9 @@
 			if (normalized.link) {
 				entry.link = normalized.link;
 			}
+			if (normalized.image) {
+				entry.image = normalized.image;
+			}
 			if (normalized.json) {
 				entry.json = normalized.json;
 			}
@@ -407,22 +421,13 @@
 			return CToc.denormalize(this._root);
 		}
 
-		public toHtml(styles?: Styles, indentSize?: number): string
+		public toHtml(renderer?: HtmlRenderer, contentOnly = false): string
 		{
-			if (!styles) styles = {};
-			if (typeof indentSize !== 'number') indentSize = 2;
-
-			let html = '';
-			if (this.title) {
-				html += titleHtml(this.title, styles);
+			if (!renderer) {
+				renderer = createHtmlRenderer();
 			}
 
-			if (this.content) {
-				let listTag = this.root.listTag ? this.root.listTag : null;
-				html += contentHtml(this._root.content, styles, "", indentSize, listTag);
-			}
-
-			return html;
+			return renderer.tocHtml(this._root, contentOnly);
 		}
 
 		public toJson(indentSize?: number): string
@@ -474,24 +479,6 @@
 				}
 			}
 		}
-
-		//public addEventListener(eventType: string, handler: EventHandler, tag: string = null)
-		//{
-		//	if (tag) {
-		//		tag = tag.toLowerCase();
-		//	}
-
-		//	CToc.forEachElement(this.root, (el: HTMLElement, entry: Normalized) =>
-		//	{
-		//		if (!tag || el.tagName.toLowerCase() === tag) {
-		//			//console.log("addEventListener on '" + eventType + "' for ", entry.gid, el);
-		//			el.addEventListener(eventType, (ev) => {
-		//				//console.log("Event handler on '" + eventType + "' for ", entry.gid);
-		//				handler(ev, el, entry);
-		//			});
-		//		}
-		//	});
-		//}
 
 		public static getStateStore(store: TStore): StateStore
 		{
@@ -699,27 +686,27 @@
 	}
 
 
-	function indentString(indentStr: string, indentSize: number): string
-	{
-		let str = indentStr;
-		for (let i = 0; i < indentSize; i++) {
-			str += ' ';
-		}
-		return str;
-	}
+	//function indentString(indentStr: string, indentSize: number): string
+	//{
+	//	let str = indentStr;
+	//	for (let i = 0; i < indentSize; i++) {
+	//		str += ' ';
+	//	}
+	//	return str;
+	//}
 
-	function getTypeSpec(styles: Styles, type: string): TypeSpec
-	{
-		if (styles.typeSpecs) {
-			if (type && styles.typeSpecs[type]) {
-				return styles.typeSpecs[type];
-			}
-			if (styles.typeSpecs["default"]) {
-				return styles.typeSpecs["default"];
-			}
-		}
-		return {};
-	}
+	//function getTypeSpec(styles: Styles, type: string): TypeSpec
+	//{
+	//	if (styles.typeSpecs) {
+	//		if (type && styles.typeSpecs[type]) {
+	//			return styles.typeSpecs[type];
+	//		}
+	//		if (styles.typeSpecs["default"]) {
+	//			return styles.typeSpecs["default"];
+	//		}
+	//	}
+	//	return {};
+	//}
 
 	export function getClasses(entry: Entry): string[]
 	{
@@ -743,119 +730,6 @@
 				return true;
 		}
 		return false;
-	}
-
-	function titleHtml(title: string, styles: Styles)
-	{
-		let titleTag = styles.titleTag;
-		let titleClass = styles.titleClass;
-		if (!titleTag) {
-			titleTag = 'div';
-		}
-		if (!titleClass && titleTag !== 'header') {
-			titleClass = 'TOC_header';
-		}
-
-		let _class = '';
-		if (titleClass) {
-			_class = ` class="${titleClass}"`;
-		}
-
-		let html = `<${titleTag}${_class}>${title}</${titleTag}>`;
-		return html + '\n';
-	}
-
-	function entryHtml(entry: Normalized, styles: Styles, indentStr: string, indentSize: number, isListItem: boolean)
-	{
-		let nextIndentStr = indentString(indentStr, indentSize);
-		let type = entry.type ? entry.type : (styles.defaultType ? styles.defaultType : null);
-		let typeSpec = getTypeSpec(styles, type);
-
-		let hasChildren = entry.content && entry.content.length > 0;;
-		let collapsable = typeSpec.collapsable;
-		if (typeof typeSpec.collapsable === 'undefined') {
-			collapsable = hasChildren;
-		//} else if (collapsable) {
-		//	hasChildren = true;
-		}
-
-		let _id = "";
-		if (entry.gid) {
-			_id = ` id="${entry.gid}"`;
-		}
-
-		let _class = "";
-		if (type) {
-			_class = ` class="${type}"`;
-		}
-
-		let html = indentStr;
-		if (isListItem) {
-			html += '<li' + _class + '>';
-			_class = "";
-		}
-		if (collapsable) {
-			let _open = typeSpec.startOpen ? " open" : "";
-			html += '<details'+_id+_class+_open+'>\n';
-		} else {
-			html += '<div'+_id+_class+'>';
-		}
-
-		let titleHtml = entryTitleHtml(entry);
-		if (collapsable) {
-			html += nextIndentStr+'<summary>'+titleHtml+'</summary>\n';
-		} else {
-			html += titleHtml;
-			if (hasChildren)
-				html += '\n';
-		}
-
-		if (entry.content) {
-			let listTag = entry.listTag ? entry.listTag : (typeSpec.listTag ? typeSpec.listTag : 'ul');
-			html += contentHtml(entry.content, styles, nextIndentStr, indentSize, listTag);
-		}
-
-		if (collapsable) {
-			html += indentStr + '</details>';
-		} else {
-			if (hasChildren)
-				html += indentStr;
-			html += '</div>';
-		}
-		if (isListItem) {
-			html += '</li>';
-		}
-		html += '\n';
-
-		return html;
-	}
-
-	function entryTitleHtml(entry: Normalized): string
-	{
-		let html = entry.title;
-		if (entry.linkUri) {
-			html = `<a href="${entry.linkUri}">${html}</a>`;
-		}
-		return html;
-	}
-
-	function contentHtml(content: Normalized[], styles: Styles, indentStr: string, indentSize: number, listTag?: string): string
-	{
-		let html = "";
-		let isList = false;
-		if (listTag) {
-			html += indentStr + '<' + listTag + '>\n';
-			isList = true;
-		}
-
-		for (let entry of content) {
-			html += entryHtml(entry, styles, indentString(indentStr, indentSize), indentSize, isList);;
-		}
-
-		if (isList) {
-			html += indentStr + '</' + listTag + '>\n';
-		}
-		return html;
 	}
 
 	function makeLinkUri(link: string, rootUri: string, homeUri: string): string
@@ -908,15 +782,10 @@
 					}
 				} else {
 					if (callback) {
-						let msg = "Can not load '" + url + "'";
-						if (xhr.status) {
-							msg += "\nHTTP status: " + xhr.status;
-							if (xhr.statusText) {
-								msg += " (" + xhr.statusText + ")";
-							}
-						}
-						console.error(msg);
-						callback(null, msg);
+						let status = xhr.statusText ? xhr.statusText : (xhr.status ? xhr.status.toString() : 'unknown');
+						let msg = "Can not load '" + url + "'. HTTP status: " + status;
+						console.error(msg, xhr);
+						callback(null, new Error(msg));
 						return null;
 					}
 				}
@@ -968,17 +837,17 @@
 
 	export function toHtml(arg: string|Entry|ToHtmlArg, callback: (html: string, err?: any) => void): void
 	{
+		//console.log("toHtml() aeg=", arg);
 		let ctoc: CToc = new CToc();
-		let styles: Styles;
-		let indent: number;
+		let renderer: HtmlRenderer;
+		let contentOnly;
 
 		if (isArg(arg)) {
-			styles = arg.styles;
-			indent = arg.indent;
-			ctoc.init(arg, onInited);
-		} else {
-			ctoc.init(arg, onInited);
+			renderer = arg.renderer;
+			contentOnly = arg.contentOnly;
 		}
+
+		ctoc.init(arg, onInited);
 
 		function onInited(ctoc: CToc, err: any)
 		{
@@ -986,7 +855,7 @@
 				if (err) {
 					callback(null, err);
 				} else {
-					let html = ctoc.toHtml(styles, indent);
+					let html = ctoc.toHtml(renderer, contentOnly);
 					callback(html);
 				}
 			}
@@ -1007,16 +876,20 @@
 		
 		if (element) {
 			let ctoc = new CToc();
-			let styles: Styles;
-			let indent: number;
+			let renderer: HtmlRenderer;
+			let contentOnly = false;
 
 			if (isArg(arg)) {
-				styles = arg.styles;
-				indent = arg.indent;
-				ctoc.init(arg, onInited);
-			} else {
-				ctoc.init(arg, onInited);
+				renderer = arg.renderer;
+				contentOnly = arg.contentOnly;
 			}
+	
+			if (store && !renderer) {
+				console.log("setAsHtml() creating renderer");
+				renderer = createHtmlRenderer({ stateStore: store });
+			}
+
+			ctoc.init(arg, onInited);
 
 			function onInited(ctoc: CToc, err: any)
 			{
@@ -1027,7 +900,7 @@
 					return;
 				}
 
-				let html = ctoc.toHtml(styles, indent);
+				let html = ctoc.toHtml(renderer, contentOnly);
 				element.innerHTML = html;
 
 				if (store) {
