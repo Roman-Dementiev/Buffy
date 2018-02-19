@@ -7,7 +7,7 @@
     "sourceMap": true,
     "outDir": "www/scripts",
     "module": "amd",
-    "target": "es5"
+    "target": "es6"
   },
   "exclude": ["platforms", "node_modules", "bower_components", "plugins", "merges", "res", "bin", "bld"]
 }

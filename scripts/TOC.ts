@@ -70,8 +70,7 @@
 		contentOnly?: boolean
 	};
 
-	//function isToc(arg: Entry | ToHtmlArg | ToJsonArg): arg is Entry { return typeof (arg as any).title !== 'undefined'; }
-	function isArg(arg: Entry | ToHtmlArg | ToJsonArg): arg is Arg { return typeof (arg as any).toc !== 'undefined'; }
+	function isArg(arg: string|Entry|ToHtmlArg|ToJsonArg): arg is Arg { return typeof (arg as any).toc !== 'undefined'; }
 
 	type Normalization = {
 		parent: Normalized,
