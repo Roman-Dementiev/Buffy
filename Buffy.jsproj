@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="www\H5GCF\BC_webgl\styles\**" />
+    <Content Remove="www\images\**" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="www\H5GCF\BC_webgl\styles\fontfaces.css" />
@@ -101,7 +102,6 @@
     <Service Include="{4a0dddb5-7a95-4fbf-97cc-616d07737a77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="www\images\" />
     <Folder Include="www\scripts\" />
     <Folder Include="www\scripts\H5GCF\" />
   </ItemGroup>
