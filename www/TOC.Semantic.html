@@ -6,22 +6,19 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="stylesheet" type="text/css" href="lib/semantic/semantic.css">
-    <link rel="stylesheet" type="text/css" href="lib/semantic/components//sidebar.css">
-    <link rel="stylesheet" type="text/css" href="TOC.Semantic.css">
+    <link rel="stylesheet" type="text/css" href="lib/semantic/components/sidebar.css">
     <script src="lib/jquery-2.2.4.js"></script>
     <script src="lib/semantic/semantic.js"></script>
     <script src="lib/semantic/components/sidebar.js"></script>
-    <script src="scripts/Sandbox.js"></script>
-    <script src="scripts/IndentedText.js"></script>
-    <script src="scripts/HtmlWriter.js"></script>
-    <script src="scripts/TOC.js"></script>
-    <script src="scripts/TOC.Rendering.js"></script>
-    <script src="scripts/TOC.Semantic.js"></script>
-    <script src="scripts/TOC_test.js"></script>
-    <script src="scripts/TOC_test.Semantic.js"></script>
+    <title>Game Develpment Bookshelf</title>
+    <link rel="stylesheet" type="text/css" href="TOC.Semantic.css">
+    <script src="scripts/Dwarf/dwarf-init.js"></script>
+    <script src="scripts/TOC_test.init.js"></script>
     <script src="TOC_full.js"></script>
-    <script src="sample.js"></script>
-	<title>Game Develpment Bookshelf</title>
+    <!--<script src="sample.js"></script>-->
+    <script>
+        window.addEventListener("load", bootstrapTest(TOC_full, true));
+    </script>
 </head>
 <body>
     <h1 id="page-header" class="ui block header">
@@ -223,10 +220,5 @@
     <uniform id="uniform" style="display:none"></uniform>
     <aside id="aside" style="display:none"></aside>
 
-    <script>
-        window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_full));
-        //window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_sample1));
-        //window.addEventListener("load", TOC_test.initSemantic('TOC.json', TOC_sample2));
-    </script>
 </body>
 </html>

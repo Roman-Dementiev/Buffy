@@ -280,7 +280,7 @@
 					imageUri: null,
 					content: null
 				};
-				Sandbox.mergeIn(normalized, entry);
+				Dwarf.mergeIn(normalized, entry);
 
 				if (normalized.id && !CToc.isValidId(normalized.id)) {
 					console.error("Invalid TOC Entry id: ", entry.id);
@@ -803,7 +803,7 @@
 			if (json.title && !toc.title) {
 				toc.title = json.title;
 			}
-			Sandbox.mergeIn(toc, json);
+			Dwarf.mergeIn(toc, json);
 		} else {
 			toc.content = json;
 		}

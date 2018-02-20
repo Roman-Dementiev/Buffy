@@ -29,7 +29,7 @@
 
 		protected constructor(config: SpriteSheetConfig)
 		{
-			this.config = Sandbox.copy(config);
+			this.config = Dwarf.copy(config);
 		}
 
 		protected setup(sheetWidth: number = 0, sheetHeight: number = 0)

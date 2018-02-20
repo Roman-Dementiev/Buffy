@@ -5,21 +5,26 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="TOC.css">
-    <!--<link id="TOC_JSON" rel="prefetch" type="text/json" href="TOC.json">-->
     <script src="scripts/TestBench.js"></script>
-    <script src="scripts/Sandbox.js"></script>
+    <!--<script src="scripts/Sandbox.js"></script>
     <script src="scripts/IndentedText.js"></script>
     <script src="scripts/HtmlWriter.js"></script>
     <script src="scripts/TOC.js"></script>
     <script src="scripts/TOC.Rendering.js"></script>
-    <script src="scripts/TOC_test.js"></script>
-    <script src="TOC_full.js"></script>
+    <script src="scripts/TOC_test.js"></script>-->
     <title>Game Develpment</title>
+    <link rel="stylesheet" type="text/css" href="TOC.css">
+    <script src="scripts/Dwarf/dwarf-init.js"></script>
+    <script src="scripts/TOC_test.init.js"></script>
+    <script src="TOC_full.js"></script>
+    <script>
+        window.addEventListener("load", bootstrapTest(TOC_full, false));
+    </script>
     <style>
         .testbench {
             display: none;
         }
+
         #TestBench_textarea {
             /*padding: 1em;*/
             /*position: absolute;*/
@@ -28,9 +33,11 @@
             /*height: 50%;*/
             width: 100%;
         }
+
         .left {
             float: left;
         }
+
         .right {
             float: right;
         }
@@ -65,9 +72,5 @@
             </div>
         </fieldset>
     </form>
-
-    <script>
-        window.addEventListener("load", TOC_test.init('TOC.json', TOC_full));
-    </script>
 </body>
 </html>

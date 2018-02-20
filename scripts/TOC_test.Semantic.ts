@@ -224,7 +224,7 @@
 		}
 	}
 
-	class TestSamantic extends BaseTest
+	export class TestSamantic extends BaseTest
 	{
 		showMode: BenchShowMode = null;
 
@@ -303,7 +303,7 @@
 				'text-align',
 				'overflow'
 			]);
-			console.log("uniformCSS=", uniformCSS);
+			//console.log("uniformCSS=", uniformCSS);
 
 			let $aside = $('aside');
 			asideCSS = $aside.css(['float', 'clear']);
@@ -505,7 +505,7 @@
 				}
 
 				let indent = $indentDropdown.dropdown('get value');
-				renderingArg.indentSize = Sandbox.IndentedText.getIndentSize(indent);
+				renderingArg.indentSize = Dwarf.IndentedText.getIndentSize(indent);
 
 				this.benchUpdate();
 			}
@@ -629,13 +629,5 @@
 			return super.tryUseSource(source, sourceMode, showMode, inject);
 		}
 	};
-
-	export function initSemantic(json: string, defaultToc?: TOC.Entry)
-	{
-		test = new TestSamantic(json, defaultToc);
-
-		//let $aside = $('aside');
-		//console.log('aside=', $aside, " css.float=", $aside.css('float'), "css.clear=", $aside.css('clear'));
-	}
 };
 

@@ -13,7 +13,7 @@
 
 	export function initialize(cfg?: GameConfig)
 	{
-		config = Sandbox.mergeDefaults(cfg, kDefaultGameConfig);
+		config = Dwarf.mergeDefaults(cfg, kDefaultGameConfig);
 		service = factory.createService(config);
 		renderer = factory.createRenderer(config);
 

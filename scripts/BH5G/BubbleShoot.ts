@@ -19,25 +19,47 @@
 
 	export type Callback = () => void;
 
-	export function bootstrap(useCanvas?: boolean) : void
-	{
-		if (typeof useCanvas === 'undefined') {
-			let doc: any = $(document)[0];
-			let url: any = doc.location;
-			let args: string = url.search;
-			if (args === '?nocanvas') {
-				useCanvas = false;
-			} else {
-				useCanvas = true;
-			}
-		}
+	var bootScripts = [
+		'Dwarf/Dwarf.js',
+		'BH5G/Sprite.js',
+		'BH5G/SpriteSheet.js',
+		'BH5G/Bubble.js',
+		'BH5G/Board.js',
+		'BH5G/Game.js',
+		'BH5G/Renderer.js',
+		'BH5G/Factory.js',
+		'BH5G/UI.js',
+		'BH5G/Sounds.js',
+		'BH5G/CollisionDetector.js',
+		'BH5G/BubbleGenerators.js',
+		'BH5G/kaboom.js'
+	]
 
-		$(document).ready(() =>
+	export function bootstrap(useCanvas?: boolean)
+	{
+		$(document).ready(async () =>
 		{
+			if (typeof useCanvas === 'undefined') {
+				let doc: any = $(document)[0];
+				let url: any = doc.location;
+				let args: string = url.search;
+				if (args === '?nocanvas') {
+					useCanvas = false;
+				} else {
+					useCanvas = true;
+				}
+			}
+
+			await Dwarf.init({
+				pathes: { scripts: '../../scripts/' },
+				beforeBoot: bootScripts
+			});
+
 			UI.init();
 			Factory.init(useCanvas);
 
-			Bubble.loadSpreadSheet(() => {
+			Bubble.loadSpreadSheet(() =>
+			{
 				Game.init();
 			})
 		});

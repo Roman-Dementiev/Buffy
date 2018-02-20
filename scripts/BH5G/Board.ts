@@ -27,7 +27,7 @@
 
 		public constructor(config?: BoardConfig, ui: UIElement = null)
 		{
-			config = Sandbox.mergeDefaults(config, kDefaultBoardConfig);
+			config = Dwarf.mergeDefaults(config, kDefaultBoardConfig);
 
 			let generator: BubbleGenerator = null;
 			if (config.generator !== undefined) {

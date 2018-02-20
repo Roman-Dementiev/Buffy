@@ -17,7 +17,7 @@
 
 		constructor(config: GameConfig)
 		{
-			this.config = Sandbox.mergeDefaults(config, kDefaultGameConfig);
+			this.config = Dwarf.mergeDefaults(config, kDefaultGameConfig);
 			this.generator = LayoutGenerator.configure(this.config);
 		}
 

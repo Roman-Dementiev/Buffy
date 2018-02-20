@@ -10,8 +10,8 @@
 	//export type Listed = null | TOC.kListItem | TOC.kTableRow;
 	export type Listed = null | 'li' | 'tr';
 
-	export type HtmlWriter = Sandbox.HtmlWriter;
-	export type TagAttr = Sandbox.TagAttr;
+	export type HtmlWriter = Dwarf.HtmlWriter;
+	export type TagAttr = Dwarf.TagAttr;
 
 	export type RendererArg = {
 		//disableDetails?: boolean,
@@ -19,7 +19,7 @@
 		headerClass?: string,
 		//headerTag?: HeaderTag,
 		contentClass?: string,
-		indentSize?: Sandbox.IndentType,
+		indentSize?: Dwarf.IndentType,
 		divider?: boolean | string;
 		dividerAtStart?: boolean | string;
 		dividerAtEnd?: boolean | string;
@@ -61,7 +61,7 @@
 		//protected headerTag: HeaderTag;
 		protected headerClass: string;
 		protected contentClass: string;
-		protected indentSize: Sandbox.IndentType;
+		protected indentSize: Dwarf.IndentType;
 		protected stateStore: StateStore;
 		protected defaultType: string;
 		protected divider: string|boolean;
@@ -82,15 +82,15 @@
 			if (!arg) arg = {};
 
 			if (defaults) {
-				this.defaults = Sandbox.mergeDefaults(defaults, HtmlRenderer.Defaults);
+				this.defaults = Dwarf.mergeDefaults(defaults, HtmlRenderer.Defaults);
 			} else {
 				this.defaults = HtmlRenderer.Defaults;
 			}
 
 			//this.headerTag = arg.headerTag ? arg.headerTag : 'div';
-			this.headerClass = Sandbox.getDefaulted(arg.headerClass, kHeaderClass);
-			this.contentClass = Sandbox.getDefaulted(arg.contentClass, kContentClass);
-			this.indentSize = Sandbox.getDefaulted(arg.indentSize, Sandbox.IndentedText.indentDefault);
+			this.headerClass = Dwarf.getDefaulted(arg.headerClass, kHeaderClass);
+			this.contentClass = Dwarf.getDefaulted(arg.contentClass, kContentClass);
+			this.indentSize = Dwarf.getDefaulted(arg.indentSize, Dwarf.IndentedText.indentDefault);
 			this.stateStore = arg.stateStore ? CToc.getStateStore(arg.stateStore) : null;
 			this.divider = arg.divider;
 			this.starter = arg.dividerAtStart;
@@ -153,8 +153,8 @@
 
 		public tocHtml(toc: Normalized, contentOnly = false, initialIndent?: number): string
 		{
-			let indentSize = Sandbox.IndentedText.getIndentSize(this.indentSize);
-			let html = new Sandbox.HtmlWriter(indentSize, initialIndent);
+			let indentSize = Dwarf.IndentedText.getIndentSize(this.indentSize);
+			let html = new Dwarf.HtmlWriter(indentSize, initialIndent);
 			html.start();
 
 			if (toc.title && !contentOnly) {
@@ -184,8 +184,8 @@
 
 		public headerHtml(title: string, initialIndent?: number): string
 		{
-			let indentSize = Sandbox.IndentedText.getIndentSize(this.indentSize);
-			let html = new Sandbox.HtmlWriter(indentSize, initialIndent);
+			let indentSize = Dwarf.IndentedText.getIndentSize(this.indentSize);
+			let html = new Dwarf.HtmlWriter(indentSize, initialIndent);
 			html.start();
 			this.writeTocHeader(html, title);
 			return html.close();
@@ -357,7 +357,7 @@
 			let contentParam: ContentParam = {
 				gid: '@' + param.gid,
 				shared: param.shared,
-				class: Sandbox.getDefaulted(param.typeSpec.contentClass, kContentClass),
+				class: Dwarf.getDefaulted(param.typeSpec.contentClass, kContentClass),
 				content: param.entry.content,
 				topLevelGlobal: false,
 				topLevelOnThis: false,

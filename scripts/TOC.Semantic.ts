@@ -54,7 +54,7 @@
 		public icon(html: HtmlWriter, arg?: any): void
 		{
 			//console.log('SemanticRenderer.icon() arg=', arg);
-			let param: Sandbox.TagArg = { close: true };
+			let param: Dwarf.TagArg = { close: true };
 			if (typeof arg === 'string') {
 				param.class = arg ? arg : 'icon';
 			} else {
@@ -127,7 +127,7 @@
 
 			html.div({ class: 'content' });
 			if (entry.title) {
-				let _class = Sandbox.HtmlWriter.mergeClasses('header', this.titleClass(type));
+				let _class = Dwarf.HtmlWriter.mergeClasses('header', this.titleClass(type));
 				html.div({ 'class': _class });
 				this.entryTitle(html, param);
 				html.enddiv();
@@ -138,7 +138,7 @@
 			}
 
 			if (entry.description) {
-				let _class = Sandbox.HtmlWriter.mergeClasses('description', this.descriptionClass(type));
+				let _class = Dwarf.HtmlWriter.mergeClasses('description', this.descriptionClass(type));
 				html.div({ 'class': _class });
 				html.put(entry.description);
 				html.enddiv();
@@ -156,7 +156,7 @@
 			let contentParam: ContentParam = {
 				gid: '@' + param.gid,
 				shared: param.shared,
-				class: Sandbox.getDefaulted(param.typeSpec.contentClass, kContentClass),
+				class: Dwarf.getDefaulted(param.typeSpec.contentClass, kContentClass),
 				content: param.entry.content,
 				topLevelGlobal: false,
 				topLevelOnThis: false,
@@ -230,7 +230,7 @@
 			this.entryTitle(html, param);
 			html.enddiv();
 
-			let contentClass = Sandbox.getDefaulted(param.typeSpec.contentClass, kContentClass);
+			let contentClass = Dwarf.getDefaulted(param.typeSpec.contentClass, kContentClass);
 			html.div({ 'class': 'content ' + contentClass }); // accordion content
 		}
 

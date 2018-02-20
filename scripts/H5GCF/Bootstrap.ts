@@ -14,7 +14,7 @@
 
 	export function bootstrap()
 	{
-		let params = Sandbox.documentParams({
+		let params = Dwarf.documentParams({
 			loader_delay: 'number',
 			//use_workers: 'boolean',
 			//webgl: 'boolean'

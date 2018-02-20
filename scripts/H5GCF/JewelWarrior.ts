@@ -182,11 +182,11 @@
 		if (!layout)
 			return false;
 
-		if (!Sandbox.checkArrayLength(layout, numCols))
+		if (!Dwag.checkArrayLength(layout, numCols))
 			return false;
 
 		for (let col = 0; col < numCols; col++) {
-			if (!Sandbox.checkArrayLength(layout[col], numRows))
+			if (!Dwag.checkArrayLength(layout[col], numRows))
 				return false;
 		}
 		return true;
