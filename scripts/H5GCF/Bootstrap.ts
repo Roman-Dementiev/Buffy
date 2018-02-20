@@ -12,8 +12,10 @@
 		return !!gl;
 	}
 
-	export function bootstrap()
+	async function bootstrap()
 	{
+		//await Dwarf.Loader.importAsync("Dwarf/Dwarf.js");
+
 		let params = Dwarf.documentParams({
 			loader_delay: 'number',
 			//use_workers: 'boolean',
@@ -32,50 +34,61 @@
 		}
 		//useWebGL = false;
 
-		window.addEventListener("load", () =>
+
+		await Dwarf.Loader.importAll(
+			"Dom.js",
+			"JewelWarrior.js",
+			"Screens.js",
+			"SplashScreen.js"
+		);
+
+		showSplashScreen();
+		//if (params.loader_delay && params.loader_delay > 0) {
+		//	Loader.executeDelay = params.loader_delay;
+		//}
+
+		let scripts = [
+			"Board.js",
+			"BoardRendererBase.js"
+		];
+
+		if (useWebGL) {
+			scripts.push("WebGL.js", "BoardRendererGL.js");
+		} else {
+			scripts.push("BoardRenderer2D.js");
+		}
+
+		if (useWorkers) {
+			scripts.push("BoardCaller.js");
+		} else {
+			scripts.push("LayoutGenerator.js");
+			scripts.push("BoardService.js");
+		}
+
+		scripts.push(
+			"MainMenu.js",
+			"GameScreen.js",
+			"HighScoresScreen.js",
+			"Input.js",
+			"Sounds.js",
+			"Storage.js",
+			"Game.js");
+
+		await Dwarf.Loader.importAll(...scripts);
+
+		Game.initialize()
+	}
+
+	export function init()
+	{
+		window.addEventListener("load", async () =>
 		{
-			Loader.scriptDirectory("../../scripts/H5GCF/")
-			Loader.load("Dom.js");
-			Loader.load("JewelWarrior.js");
-			Loader.load("Screens.js");
-			Loader.load("SplashScreen.js", () =>
-			{
-				showSplashScreen();
-				if (params.loader_delay && params.loader_delay > 0) {
-					Loader.executeDelay = params.loader_delay;
-				}
-			});
-
-			Loader.load("Board.js");
-
-			Loader.load("BoardRendererBase.js");
-			if (useWebGL) {
-				Loader.load("WebGL.js");
-				//Loader.load("Board.GL.js");
-				Loader.load("BoardRendererGL.js");
-			} else {
-				Loader.load("BoardRenderer2D.js");
-			}
-
-			if (useWorkers) {
-				Loader.load("BoardCaller.js");
-			} else {
-				Loader.load("LayoutGenerator.js");
-				Loader.load("BoardService.js");
-			}
-
-			Loader.load("MainMenu.js");
-			Loader.load("GameScreen.js");
-			Loader.load("HighScoresScreen.js");
-			Loader.load("Input.js");
-			Loader.load("Sounds.js");
-			Loader.load("Storage.js")
-			Loader.load("Game.js", () =>
-			{
-				Loader.logScripts();
-				Game.initialize()
+			Dwarf.init({
+				pathes: { scripts: '../../scripts/H5GCF/', dwarf: '../../scripts/Dwarf/', '@': 'dwarf'},
+				loader: '../Dwarf/Dwolf.js',
+				bootstrap: bootstrap,
+				beforeBoot: ['@Dwarf.js', '@Dwag.js']
 			});
 		});
 	}
-
 };

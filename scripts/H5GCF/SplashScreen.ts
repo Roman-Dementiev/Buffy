@@ -30,7 +30,7 @@
 
 		private checkProgress()
 		{
-			let percent = Loader.getLoadProgress() * 100;
+			let percent = Dwarf.Loader.getLoadProgress() * 100;
 
 			this.progressIndicator.style.width = percent + "%";
 			if (percent >= 100) {
