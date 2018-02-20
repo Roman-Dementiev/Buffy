@@ -24,36 +24,73 @@ var types = {
 	}
 };
 
+var scripts = [
+	'Dwarf/Dwarf.js',
+	'Dwarf/IndentedText.js',
+	'Dwarf/HtmlWriter.js',
+	'TOC.js',
+	'TOC.Rendering.js',
+	'TOC.Semantic.js'
+];
 
-export function initialize(): void {
+
+var bootstraping: Promise<any>;
+
+export function initialize()
+{
 	//initTime = Date.now();
 	document.addEventListener('deviceready', onDeviceReady, false);
 	console.log("initialized");
+
+	bootstraping = Dwarf.boot(...scripts);
 }
 
-function onDeviceReady(): void
+async function onDeviceReady()
 {
-	//let delay : number = Date.now() - initTime;
-	//console.log("deviceready: ", delay);
-
 	document.addEventListener('pause', onPause, false);
 	document.addEventListener('resume', onResume, false);
 
 	// TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-	var parentElement = document.getElementById('deviceready');
-	var listeningElement = parentElement.querySelector('.listening');
-	var receivedElement = parentElement.querySelector('.received');
-	listeningElement.setAttribute('style', 'display:none;');
-	receivedElement.setAttribute('style', 'display:block;');
+	//var parentElement = document.getElementById('deviceready');
+	//var listeningElement = parentElement.querySelector('.listening');
+	//var receivedElement = parentElement.querySelector('.received');
+	//listeningElement.setAttribute('style', 'display:none;');
+	//receivedElement.setAttribute('style', 'display:block;');
 
-	let cordovaElement = document.querySelector('.cordova');
-	let contentElement = document.querySelector('.content');
+	bootstraping
+		.then(() =>
+		{
+			console.debug("bootstarp finished.");
+			showContent();
+		})
+		.catch((err) =>
+		{
+			console.error("bootstrap error:", err);
+			showError();
+		})
+
+	//let cordovaElement = document.querySelector('.cordova');
+	//let contentElement = document.querySelector('.content');
+
+}
+
+function showContent()
+{
+	//var parentElement = document.getElementById('deviceready');
+	//var receivedElement = parentElement.querySelector('.received');
+	//receivedElement.setAttribute('style', 'display:none;');
+
+	var startupElement = document.getElementById('startup');
+	var contentElement = document.getElementById('content');
+	//startupElement.setAttribute('style', 'display:none;');
+	//contentElement.setAttribute('style', 'display:block;');
 
 	let arg: TOC.ToHtmlArg = {
 		toc: 'TOC.json',
 		types: types,
 		renderer: createRenderer(),
-		initHook: (ctoc: TOC.CToc) => {
+		initHook: (ctoc: TOC.CToc) =>
+		{
 			//console.log("Before hook: ", logContent(ctoc.root));
 			ctoc.removeClasses("bonus")
 			//console.log("After hook: ", logContent(ctoc.root));
@@ -65,10 +102,19 @@ function onDeviceReady(): void
 		if (err) {
 			alert(`Can not load '${arg.toc}': ` + err.toString());
 		} else {
-			cordovaElement.setAttribute('style', 'display:none;');
+			startupElement.setAttribute('style', 'display:none;');
 			contentElement.setAttribute('style', 'display:block;');
 		}
 	}, sessionStorage);
+}
+
+function showError()
+{
+	var parentElement = document.getElementById('deviceready');
+	var receivedElement = parentElement.querySelector('.received');
+	var errorElement = parentElement.querySelector('.error');
+	receivedElement.setAttribute('style', 'display:none;');
+	errorElement.setAttribute('style', 'display:block;');
 }
 
 function createRenderer(): TOC.HtmlRenderer

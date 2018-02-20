@@ -20,20 +20,20 @@
 	export type Callback = () => void;
 
 	var bootScripts = [
-		'Dwarf/Dwarf.js',
-		'BH5G/Sprite.js',
-		'BH5G/SpriteSheet.js',
-		'BH5G/Bubble.js',
-		'BH5G/Board.js',
-		'BH5G/Game.js',
-		'BH5G/Renderer.js',
-		'BH5G/Factory.js',
-		'BH5G/UI.js',
-		'BH5G/Sounds.js',
-		'BH5G/CollisionDetector.js',
-		'BH5G/BubbleGenerators.js',
-		'BH5G/kaboom.js'
-	]
+		'@Dwarf.js',
+		'Sprite.js',
+		'SpriteSheet.js',
+		'Bubble.js',
+		'Board.js',
+		'Game.js',
+		'Renderer.js',
+		'Factory.js',
+		'UI.js',
+		'Sounds.js',
+		'CollisionDetector.js',
+		'BubbleGenerators.js',
+		'kaboom.js'
+	];
 
 	export function bootstrap(useCanvas?: boolean)
 	{
@@ -50,10 +50,8 @@
 				}
 			}
 
-			await Dwarf.init({
-				pathes: { scripts: '../../scripts/' },
-				beforeBoot: bootScripts
-			});
+			Dwarf.Loader.configure({ scripts: '../../scripts/BH5G', dwarf: '../../scripts/Dwarf', '@': 'dwarf' });
+			await Dwarf.boot(...bootScripts);
 
 			UI.init();
 			Factory.init(useCanvas);

@@ -85,7 +85,7 @@
 		{
 			Dwarf.init({
 				pathes: { scripts: '../../scripts/H5GCF/', dwarf: '../../scripts/Dwarf/', '@': 'dwarf'},
-				loader: '../Dwarf/Dwolf.js',
+				loader: '@Dwolf.js',
 				bootstrap: bootstrap,
 				beforeBoot: ['@Dwarf.js', '@Dwag.js']
 			});
